@@ -8,7 +8,7 @@ Author: Haohao Qu (haohao.qu@connect.polyu.hk)
 
 ## Data Description
 
-The data used in this study is drawn from a publicly available mobile application, which provides the real-time availability of charging piles (i.e., idle or not). Within Shenzhen, China, a total of 18,013 public charging piles are covered during the studied period from 19 June to 18 July 2022 (30 days) with a minimum interval of 5 minutes and `8640 timestamps`. As shown in Figure 1, the city is constructed into a graph-structure data with `247 nodes` (traffic zones) and `1006 edges` (adjacent relationships).
+The data used in this study is drawn from a publicly available mobile application, which provides the real-time availability of charging piles (i.e., idle or not). Within Shenzhen, China, a total of 18,061 public charging piles are covered during the studied period from 19 June to 18 July 2022 (30 days) with a minimum interval of 5 minutes and `8640 timestamps`. As shown in Figure 1, the city is constructed into a graph-structure data with `247 nodes` (traffic zones) and `1006 edges` (adjacent relationships).
 
 ![avatar](figs/map.png) Figure 1. Spatial distribution of public EV charging piles in Shenzhen.
 
