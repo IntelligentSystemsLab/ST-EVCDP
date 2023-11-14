@@ -6,7 +6,7 @@ import functions as fn
 import copy
 from tqdm import tqdm
 
-
+# 
 def physics_informed_meta_learning(law_list, global_model, model_name, p_epoch, bs, train_occupancy, train_price, seq_l, pre_l, device, adj_dense):
     support_occ, query_occ = fn.meta_division(train_occupancy, support_rate=0.5, query_rate=0.5)
     support_prc, query_prc = fn.meta_division(train_price, support_rate=0.5, query_rate=0.5)
