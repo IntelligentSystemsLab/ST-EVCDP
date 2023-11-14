@@ -203,6 +203,14 @@ class PseudoDataset(Dataset):
         return output_occ, output_prc, output_label, output_pseudo_prc, output_pseudo_label
 
 
+def meta_division(data, support_rate, query_rate):
+    data_length = len(data)
+    support_division_index = int(data_length * support_rate)
+    supprot_set = data[:support_division_index, :]
+    query_set = data[support_division_index:, :]
+    return supprot_set, query_set
+
+
 def zero_init_global_gradient(model):
     grads = dict()
     for name, param in model.named_parameters():
