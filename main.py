@@ -1,12 +1,13 @@
 import copy
 import baselines
 import torch
+import numpy as np
 import pandas as pd
 import functions as fn
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 import models
-
+import learner
 
 # system configuration
 use_cuda = True
@@ -18,10 +19,12 @@ model_name = 'PAG'
 seq_l = 12
 pre_l = 6
 bs = 512
-p_epoch = 400
-n_epoch = 2000
+p_epoch = 200
+n_epoch = 1000
+law_list = np.array([-1.48, -0.74])  # price elasticities of demand for EV charging. Recommend: up to 5 elements.
 is_train = True
-is_pre_train = False
+mode = 'completed'  # 'simplified' or 'completed'
+is_pre_train = True
 
 # input data
 occ, prc, adj, col, dis, cap, time, inf = fn.read_dataset()
@@ -42,7 +45,7 @@ test_dataset = fn.CreateDataset(test_occupancy, test_price, seq_l, pre_l, device
 test_loader = DataLoader(test_dataset, batch_size=len(test_occupancy), shuffle=False)
 
 # training setting
-model = models.PAG(a_sparse=adj_sparse).to(device)
+model = models.PAG(a_sparse=adj_sparse).to(device)  # init model
 # model = baselines.LstmGcn(seq_l, 2, adj_dense_cuda)
 # model = baselines.LstmGat(seq_l, 2, adj_dense_cuda, adj_sparse)
 optimizer = torch.optim.Adam(model.parameters(), weight_decay=0.00001)
@@ -52,19 +55,13 @@ valid_loss = 100
 if is_train is True:
     model.train()
     if is_pre_train is True:
-        for epoch in tqdm(range(p_epoch), desc='Pre-training'):
-            for j, data in enumerate(train_loader):
-                '''
-                occupancy = (batch, seq, node)
-                price = (batch, seq, node)
-                label = (batch, node)
-                '''
-                occupancy, price, label, prc_ch, label_ch = data
-                optimizer.zero_grad()
-                predict = model(occupancy, prc_ch)
-                loss = loss_function(predict, label_ch)
-                loss.backward()
-                optimizer.step()
+        if mode == 'simplified':  # a simplified way of physics-informed meta-learning
+            model = learner.fast_learning(law_list, model, model_name, p_epoch, bs, train_occupancy, train_price, seq_l, pre_l, device, adj_dense)
+
+        elif mode == 'completed': # the completed process
+            model = learner.physics_informed_meta_learning(law_list, model, model_name, p_epoch, bs, train_occupancy, train_price, seq_l, pre_l, device, adj_dense)
+        else:
+            print("Mode error, skip the pre-training process.")
 
     for epoch in tqdm(range(n_epoch), desc='Fine-tuning'):
         for j, data in enumerate(train_loader):
@@ -74,7 +71,7 @@ if is_train is True:
             label = (batch, node)
             '''
             model.train()
-            occupancy, price, label, prc_ch, label_ch = data
+            occupancy, price, label = data
 
             optimizer.zero_grad()
             predict = model(occupancy, price)
@@ -91,21 +88,20 @@ if is_train is True:
             label = (batch, node)
             '''
             model.train()
-            occupancy, price, label, prc_ch, label_ch = data
+            occupancy, price, label = data
             predict = model(occupancy, price)
             loss = loss_function(predict, label)
             if loss.item() < valid_loss:
                 valid_loss = loss.item()
-                torch.save(model, './checkpoints' + '/' + model_name + '_' + str(pre_l) + '_bs' + str(bs) + 'model.pt')
+                torch.save(model, './checkpoints' + '/' + model_name + '_' + str(pre_l) + '_bs' + str(bs) + '_' + mode + '.pt')
 
-model = torch.load('./checkpoints' + '/' + model_name + '_' + str(pre_l) + '_bs' + str(bs) + 'model.pt')
+model = torch.load('./checkpoints' + '/' + model_name + '_' + str(pre_l) + '_bs' + str(bs) + '_' + mode + '.pt')
 # test
 model.eval()
 result_list = []
-node = 32
 for j, data in enumerate(test_loader):
     if j == 0:
-        occupancy, price, label, prc_ch, label_ch = data  # occupancy.shape = [batch, seq, node]
+        occupancy, price, label = data  # occupancy.shape = [batch, seq, node]
         print('occupancy:', occupancy.shape, 'price:', price.shape, 'label:', label.shape)
         with torch.no_grad():
             predict = model(occupancy, price)
@@ -120,5 +116,3 @@ for j, data in enumerate(test_loader):
 
     else:
         break
-
-
