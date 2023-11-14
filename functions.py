@@ -84,7 +84,26 @@ def metrics(test_pre, test_real):
 
 
 class CreateDataset(Dataset):
-    def __init__(self, occ, prc, lb, pt, device, adj, num_layers=2, prob=0.6):  # adj
+    def __init__(self, occ, prc, lb, pt, device, adj):  # adj
+        occ, label = create_rnn_data(occ, lb, pt)
+        prc, _ = create_rnn_data(prc, lb, pt)
+        self.occ = torch.Tensor(occ)
+        self.prc = torch.Tensor(prc)
+        self.label = torch.Tensor(label)
+        self.device = device
+
+    def __len__(self):
+        return len(self.occ)
+
+    def __getitem__(self, idx):  # occ: batch, seq, node
+        output_occ = torch.transpose(self.occ[idx, :, :], 0, 1).to(self.device)
+        output_prc = torch.transpose(self.prc[idx, :, :], 0, 1).to(self.device)
+        output_label = self.label[idx, :].to(self.device)
+        return output_occ, output_prc, output_label
+
+
+class CreateFastDataset(Dataset):
+    def __init__(self, occ, prc, lb, pt, law, device, adj, num_layers=2, prob=0.6):  # adj
         occ, label = create_rnn_data(occ, lb, pt)
         prc, _ = create_rnn_data(prc, lb, pt)
         self.occ = torch.Tensor(occ)
@@ -95,39 +114,105 @@ class CreateDataset(Dataset):
         self.eye = torch.eye(adj.shape[0])
         self.deg = torch.sum(adj, dim=0)
         self.num_layers = num_layers
-        self.prob = prob
+        self.law = -law
 
-    def __len__(self):
-        return len(self.occ)
-
-    def __getitem__(self, idx):  # occ: batch, seq, node
-        prob = self.prob  # the probability of dropping
-        chg = torch.rand(size=[self.occ.shape[2]])
+        # price
+        chg = torch.randn(size=[self.occ.shape[2]]) / 2
         chg[torch.where(chg < prob)] = 0
-        chg[torch.where(chg > prob)] = torch.randn_like(chg[torch.where(chg > prob)]) / 2
-        prc_chg = chg  # [node, ]
+        self.prc_chg = chg  # [node, ]
 
         # label
         chg = torch.unsqueeze(chg, dim=1)  # [node, 1]
         deg = torch.unsqueeze(self.deg, dim=1)  # [node, 1]
         label_chg = [-chg]
         hop_chg = chg
-        for n in range(self.num_layers):  # GCN
+        for n in range(self.num_layers):  # graph propagation
             hop_chg = torch.matmul(self.adj-self.eye, hop_chg) * (1 / deg)
             label_chg.append(hop_chg)
         label_chg = torch.stack(label_chg, dim=1)  # [node, num_layers]
         label_chg = torch.sum(label_chg, dim=1)  # [node, ]
-        label_chg = torch.squeeze(label_chg, dim=1)
+        self.label_chg = torch.squeeze(label_chg, dim=1)
 
+    def __len__(self):
+        return len(self.occ)
+
+    def __getitem__(self, idx):  # occ: batch, seq, node
         # Pseudo Sampling
-        prc_ch = torch.Tensor(self.prc[idx, :, :] * (1+prc_chg))  # [node, seq]
-        label_ch = torch.tan(torch.Tensor(self.label[idx, :] * (1+label_chg/0.7)))  # [node, ]
+        prc_ch = torch.Tensor(self.prc[idx, :, :] * (1+self.prc_chg))  # [node, seq]
+        label_ch = torch.tan(torch.Tensor(self.label[idx, :] * (1+self.label_chg/self.law)))  # [node, ]
 
-        # transpose
+        # to device
         output_occ = torch.transpose(self.occ[idx, :, :], 0, 1).to(self.device)
         output_prc = torch.transpose(self.prc[idx, :, :], 0, 1).to(self.device)
         output_label = self.label[idx, :].to(self.device)
         output_prc_ch = torch.transpose(prc_ch, 0, 1).to(self.device)
         output_label_ch = label_ch.to(self.device)
-
         return output_occ, output_prc, output_label, output_prc_ch, output_label_ch
+
+
+class PseudoDataset(Dataset):
+    def __init__(self, occ, prc, lb, pt, device, adj, law, num_layers=2, prop=0.4):  # adj
+        occ, label = create_rnn_data(occ, lb, pt)
+        prc, _ = create_rnn_data(prc, lb, pt)
+        self.occ = torch.Tensor(occ)
+        self.prc = torch.Tensor(prc)
+        self.label = torch.Tensor(label)
+        self.device = device
+        self.adj = adj
+        self.eye = torch.eye(adj.shape[0])
+        self.deg = torch.sum(adj, dim=0)
+        self.num_layers = num_layers
+        self.prop = prop  # Proportion of nodes with price changes
+        self.law = -law
+
+        # price changes
+        node_score = torch.rand(size=[self.occ.shape[2]])
+        shred = torch.quantile(node_score, self.prop)
+        prc_chg = torch.randn_like(node_score) / 2  # Percentage change in price
+        prc_chg[torch.where(node_score > self.prop)] = 0
+        self.prc_chg = prc_chg
+
+        # label changes
+        label_chg = self.law * prc_chg  # Percentage change in occupancy
+        label_chg = torch.unsqueeze(label_chg, dim=1)  # [node, 1]
+        hop_chg = -label_chg
+        label_chg = [label_chg]
+        deg = torch.unsqueeze(self.deg, dim=1)  # [node, 1]
+        for n in range(self.num_layers):  # graph propagation
+            hop_chg = torch.matmul(self.adj-self.eye, hop_chg) * (1 / deg)
+            label_chg.append(hop_chg)
+        label_chg = torch.stack(label_chg, dim=1)  # [node, num_layers]
+        label_chg = torch.sum(label_chg, dim=1)  # [node, ]
+        self.label_chg = torch.squeeze(label_chg, dim=1)
+
+    def __len__(self):
+        return len(self.occ)
+
+    def __getitem__(self, idx):  # occ: batch, seq, node
+        # sampling
+        pseudo_prc = torch.Tensor(self.prc[idx, :, :] * (1+self.prc_chg))  # [node, seq]
+        pseudo_label = torch.tan(torch.Tensor(self.label[idx, :] * (1+self.label_chg)))  # [node, ]
+
+        # to device
+        output_occ = torch.transpose(self.occ[idx, :, :], 0, 1).to(self.device)
+        output_prc = torch.transpose(self.prc[idx, :, :], 0, 1).to(self.device)
+        output_label = self.label[idx, :].to(self.device)
+        output_pseudo_prc = torch.transpose(pseudo_prc, 0, 1).to(self.device)
+        output_pseudo_label = pseudo_label.to(self.device)
+
+        return output_occ, output_prc, output_label, output_pseudo_prc, output_pseudo_label
+
+
+def zero_init_global_gradient(model):
+    grads = dict()
+    for name, param in model.named_parameters():
+        param.requires_grad_(True)
+        grads[name] = 0
+    return grads
+
+
+def data_mix(ori_data, pse_data, mix_ratio):
+    shred = int(ori_data.shape[0] * mix_ratio)
+    mix_data = ori_data
+    mix_data[shred:] = pse_data[shred:]  # mix on the 1st dimension: batch
+    return mix_data
