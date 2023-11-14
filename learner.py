@@ -34,7 +34,7 @@ def physics_informed_meta_learning(law_list, global_model, model_name, p_epoch, 
 
         # inner loop
         for n in range(n_laws):
-            temp_model = torch.load('./checkpoints' + '/' + model_name + '_' + str(pre_l) + '_bs' + str(bs) + 'model.pt').to(device)
+            temp_model = torch.load('./checkpoints' + '/meta_' + model_name + '_' + str(pre_l) + '_bs' + str(bs) + 'model.pt').to(device)
             temp_optimizer = torch.optim.Adam(temp_model.parameters(), weight_decay=0.00001)
             temp_model.train()
             # support
