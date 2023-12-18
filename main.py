@@ -46,6 +46,7 @@ test_loader = DataLoader(test_dataset, batch_size=len(test_occupancy), shuffle=F
 
 # training setting
 model = models.PAG(a_sparse=adj_sparse).to(device)  # init model
+# model = FGN().to(device)
 # model = baselines.LstmGcn(seq_l, 2, adj_dense_cuda)
 # model = baselines.LstmGat(seq_l, 2, adj_dense_cuda, adj_sparse)
 optimizer = torch.optim.Adam(model.parameters(), weight_decay=0.00001)
@@ -99,20 +100,19 @@ model = torch.load('./checkpoints' + '/' + model_name + '_' + str(pre_l) + '_bs'
 # test
 model.eval()
 result_list = []
+predict_list = np.zeros([1, adj_dense.shape[1])
+label_list = np.zeros([1, adj_dense.shape[1]])
 for j, data in enumerate(test_loader):
-    if j == 0:
-        occupancy, price, label = data  # occupancy.shape = [batch, seq, node]
-        print('occupancy:', occupancy.shape, 'price:', price.shape, 'label:', label.shape)
-        with torch.no_grad():
-            predict = model(occupancy, price)
-            predict = predict.cpu().detach().numpy()
-            label = label.cpu().detach().numpy()
+    occupancy, price, label = data  # occupancy.shape = [batch, seq, node]
+    print('occupancy:', occupancy.shape, 'price:', price.shape, 'label:', label.shape)
+    with torch.no_grad():
+        predict = model(occupancy, price)
+        predict = predict.cpu().detach().numpy()
+        label = label.cpu().detach().numpy()
+        predict_list = np.concatenate((predict_list, predict), axis=0)
+        label_list = np.concatenate((label_list, label), axis=0)
 
-        print('Evaluation results')
-        output_no_noise = fn.metrics(test_pre=predict, test_real=label)
-        result_list.append(output_no_noise)
-        result_df = pd.DataFrame(columns=['MSE', 'RMSE', 'MAPE', 'RAE', 'MAE', 'R2'], data=result_list)
-        result_df.to_csv('./results' + '/' + model_name + '_' + str(pre_l) + 'bs' + str(bs) + '.csv', encoding='gbk')
-
-    else:
-        break
+output_no_noise = fn.metrics(test_pre=predict_list[1:, :], test_real=label_list[1:, :])
+result_list.append(output_no_noise)
+result_df = pd.DataFrame(columns=['MSE', 'RMSE', 'MAPE', 'RAE', 'MAE', 'R2'], data=result_list)
+result_df.to_csv('./results' + '/' + model_name + '_' + str(pre_l) + 'bs' + str(bs) + '.csv', encoding='gbk')
