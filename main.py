@@ -100,7 +100,7 @@ model = torch.load('./checkpoints' + '/' + model_name + '_' + str(pre_l) + '_bs'
 # test
 model.eval()
 result_list = []
-predict_list = np.zeros([1, adj_dense.shape[1])
+predict_list = np.zeros([1, adj_dense.shape[1]])
 label_list = np.zeros([1, adj_dense.shape[1]])
 for j, data in enumerate(test_loader):
     occupancy, price, label = data  # occupancy.shape = [batch, seq, node]
