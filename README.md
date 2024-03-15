@@ -1,3 +1,6 @@
+## Updates
+March 15, 2024: We uploaded the data of charging duration and volume in the studied areas.
+
 ## Spatio-temporal EVCDP (Shenzhen)
 
 This is a real-world dataset for spatio-temporal electric vehicle (EV) charging demand prediction. If it is helpful to your research, please cite our paper:
@@ -22,11 +25,11 @@ Besides, the pricing schemes for the studied charging piles are also collected. 
 * `distance.csv`: Distances between nodes.
 * `information.csv`: Several basis information about the data, including pile capacity, longitude, latitude, whether or not located in the central business district (1:yes, 0:no), and whether or not on a time-based pricing scheme (1:yes, 0:no).
 * `occupancy.csv`: The real-time EV charging occupancy in studied areas.
+* `duration.csv`: The real-time EV charging duration in studied areas, i.e., the sum of charging time for all charging piles, unit in hour.
+* `volume.csv`: The real-time EV charging volume in studied areas, i.e., the total power consumption of all charging piles, unit in kWh.
 * `price.csv`: The real-time EV charging pricing in studied areas.
 * `time.csv`: The timestamps of studied period.
 * `Shenzhen.qgz`: The QGIS map file of Shenzhen city.
-
-
 
 ## Enviroment Requirement
 ```shell
