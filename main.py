@@ -47,8 +47,8 @@ test_loader = DataLoader(test_dataset, batch_size=len(test_occupancy), shuffle=F
 # training setting
 model = models.PAG(a_sparse=adj_sparse).to(device)  # init model
 # model = FGN().to(device)
-# model = baselines.LstmGcn(seq_l, 2, adj_dense_cuda)
-# model = baselines.LstmGat(seq_l, 2, adj_dense_cuda, adj_sparse)
+# model = baselines.LSTM(seq_l, 2).to(device)
+# model = baselines.LstmGcn(seq_l, 2, adj_dense_cuda).to(device)
 optimizer = torch.optim.Adam(model.parameters(), weight_decay=0.00001)
 loss_function = torch.nn.MSELoss()
 valid_loss = 100
