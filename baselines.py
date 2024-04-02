@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import checkpoints
+import models
 import torch.nn.functional as F
 import functions as fn
 import copy
@@ -120,8 +120,8 @@ class LstmGat(nn.Module):
         self.nodes = adj_dense.shape[0]
         self.gcn = nn.Linear(in_features=seq - n_fea + 1, out_features=seq - n_fea + 1, device=device)
         self.encoder = nn.Conv2d(self.nodes, self.nodes, (n_fea, n_fea), device=device)
-        self.gat_l1 = checkpoints.MultiHeadsGATLayer(adj_sparse, seq - n_fea + 1, seq - n_fea + 1, 4, 0, 0.2)
-        self.gat_l2 = checkpoints.MultiHeadsGATLayer(adj_sparse, seq - n_fea + 1, seq - n_fea + 1, 4, 0, 0.2)
+        self.gat_l1 = models.MultiHeadsGATLayer(adj_sparse, seq - n_fea + 1, seq - n_fea + 1, 4, 0, 0.2)
+        self.gat_l2 = models.MultiHeadsGATLayer(adj_sparse, seq - n_fea + 1, seq - n_fea + 1, 4, 0, 0.2)
         self.lstm = nn.LSTM(self.nodes, self.nodes, num_layers=2, batch_first=True)
         self.decoder = nn.Linear(seq - n_fea + 1, 1, device=device)
 
