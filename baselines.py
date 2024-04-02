@@ -37,6 +37,7 @@ class LSTM(nn.Module):
         x, _ = self.lstm(x)
         x = torch.transpose(x, 1, 2)  # shape [batch, node, seq-n_fea+1]
         x = self.decoder(x)
+        x = torch.squeeze(x)
         return x
 
 
