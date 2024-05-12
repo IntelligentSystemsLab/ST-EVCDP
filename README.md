@@ -1,5 +1,7 @@
 ## Updates
-March 15, 2024: We uploaded the data of charging duration and volume in the studied areas.
+* ST-EVCDP-Version2 is coming soon. The data will span from September 2022 to September 2023, with granularity to charging stations, including coordinates, numbers of chargers, occupancy, and price. Other information will also be gradually released after being desensitized for academic research purposes.
+* May 12, 2024: We uploaded the data of weather conditions in the studied areas, namely `SZweather20220619-20220718.csv` and `SZweather_Header.txt`.
+* March 15, 2024: We uploaded the data of charging duration and volume in the studied areas.
 
 ## Spatio-temporal EVCDP (Shenzhen)
 
