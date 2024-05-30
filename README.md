@@ -1,4 +1,6 @@
 ## Updates
+* May 30, 2024: The ST-EVCDP-V2 dataset is still being compiled... We will make every effort to release it as quickly as we can.
+* May 14, 2024:  Our paper has been accepted by [IEEE T-ITS](https://ieeexplore.ieee.org/document/10539613)!
 * ST-EVCDP-Version2 is coming soon. The data will span from September 2022 to September 2023, with granularity to charging stations, including coordinates, numbers of chargers, occupancy, and price. Other information will also be gradually released after being desensitized for academic research purposes.
 * May 12, 2024: We uploaded the data of weather conditions in the studied areas, namely `SZweather20220619-20220718.csv` and `SZweather_Header.txt`.
 * March 15, 2024: We uploaded the data of charging duration and volume in the studied areas.
@@ -7,7 +9,17 @@
 
 This is a real-world dataset for spatio-temporal electric vehicle (EV) charging demand prediction. If it is helpful to your research, please cite our paper:
 
->Qu, H., Kuang, H., Li, J., & You, L. (2023). A physics-informed and attention-based graph learning approach for regional electric vehicle charging demand prediction. arXiv preprint arXiv:2309.05259. [Paper in arXiv](https://arxiv.org/abs/2309.05259)
+>Qu, H., Kuang, H., Li, J., & You, L. (2023). A physics-informed and attention-based graph learning approach for regional electric vehicle charging demand prediction. IEEE Transactions on Intellgent Transportation Systems. [Paper in IEEE Explore](https://ieeexplore.ieee.org/document/10539613) [Paper in arXiv](https://arxiv.org/abs/2309.05259)
+
+```shell
+@ARTICLE{10539613,
+  author={Qu, Haohao and Kuang, Haoxuan and Wang, Qiuxuan and Li, Jun and You, Linlin},
+  journal={IEEE Transactions on Intelligent Transportation Systems}, 
+  title={A Physics-Informed and Attention-Based Graph Learning Approach for Regional Electric Vehicle Charging Demand Prediction}, 
+  year={2024},
+  pages={1-14},
+  doi={10.1109/TITS.2024.3401850}}
+```
 
 Author: Haohao Qu (haohao.qu@connect.polyu.hk)
 
