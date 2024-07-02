@@ -36,7 +36,7 @@ Besides, the pricing schemes for the studied charging piles are also collected. 
 ![avatar](figs/statistics.png)
 
 ### ST-EVCDP-v2
-Expanding on the foundation of ST-EVCDP, we have gathered an extensive dataset called ST-EVCDP-v2, specifically tailored for EV-related research. This dataset covers a timeframe of **one year**, spanning from September 2022 to September 2023, which includes comprehensive information such as coordinates, charging occupancy, duration, volume, and price for a total of 1,682 public charging stations with 24,798 public charging piles. Notably, it provides detailed spatial information on charging stations, with a granularity that allows analysis at the charging station level. And its temporal interval is one hour.
+Expanding on the foundation of ST-EVCDP, we have gathered an extensive dataset called ST-EVCDP-v2, specifically tailored for EV-related research. This dataset covers a timeframe of **one year**, spanning from September 2022 to September 2023, which includes comprehensive information such as coordinates, charging occupancy, duration, volume, and price for a total of 1,682 public charging stations with 24,798 public charging piles. Notably, it provides detailed information on charging stations, with a granularity that allows analysis at the charging station level. And its temporal interval is one hour. You can download the data from [Google Drive Link](https://drive.google.com/drive/folders/1sqOUEpMh8VMiJhrT-MOn5OsB1-KirUVq?usp=drive_link).
 
 ![avatar](figs/map_v2.png) Figure 1. Spatial distribution of the 24,798 public EV charging piles in ST-EVCDP-v2.
 
