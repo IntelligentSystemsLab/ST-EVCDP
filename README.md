@@ -17,6 +17,7 @@ This is a real-world dataset for spatio-temporal electric vehicle (EV) charging 
 Author: Haohao Qu (haohao.qu@connect.polyu.hk)
 
 ## Updates
+* July 8, 2024: We uploaded meteorological data collected from two weather stations for ST-EVCDP-v2, see link below.
 * **July 2, 2024: We are excited to announce the release of the early access version of ST-EVCDP-v2! You can download the data from [Google Drive Link](https://drive.google.com/drive/folders/1sqOUEpMh8VMiJhrT-MOn5OsB1-KirUVq?usp=drive_link).**
 * May 30, 2024: The ST-EVCDP-V2 dataset is still being compiled... We will make every effort to release it as quickly as we can.
 * May 14, 2024:  Our paper has been accepted by [IEEE T-ITS](https://ieeexplore.ieee.org/document/10539613)!
@@ -59,6 +60,9 @@ Expanding on the foundation of ST-EVCDP, we have gathered an extensive dataset c
 * `volume.csv`: Hourly EV charging volume in specific stations (Unit: kWh).
 * `e_price.csv`: Electricity price for specific stations (Unit: Yuan/kWh).
 * `s_price.csv`: Service price for specific stations (Unit: Yuan/kWh).
+* `weather_airport.csv`: Weather data collected from the meteorological station at Bao'an Airport (Shenzhen).
+* `weather_central.csv`: Weather data collected from Futian Meteorological Station located in the city centre area of Shenzhen.
+* `weather_header.csv`: Descriptions of the table headers presented in `weather_airport.csv` and `weather_central.csv`.
 
 ## Enviroment Requirement
 ```shell
