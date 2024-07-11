@@ -17,6 +17,7 @@ This is a real-world dataset for spatio-temporal electric vehicle (EV) charging 
 Author: Haohao Qu (haohao.qu@connect.polyu.hk)
 
 ## Updates
+* July 11, 2024: Update 'duration.csv' in ST-EVCDP-v2.
 * July 8, 2024: We uploaded meteorological data collected from two weather stations for ST-EVCDP-v2, see link below.
 * **July 2, 2024: We are excited to announce the release of the early access version of ST-EVCDP-v2! You can download the data from [Google Drive Link](https://drive.google.com/drive/folders/1sqOUEpMh8VMiJhrT-MOn5OsB1-KirUVq?usp=drive_link).**
 * May 30, 2024: The ST-EVCDP-V2 dataset is still being compiled... We will make every effort to release it as quickly as we can.
