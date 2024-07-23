@@ -56,7 +56,7 @@ Expanding on the foundation of ST-EVCDP, we have gathered an extensive dataset c
 
 ### ST-EVCDP-v2
 * `inf.csv`: Important information of the charging stations, including coordinates and charging capacities.
-* `count.csv`: Hourly EV charging occupancy (busy count) in certain stations.
+* `occupancy.csv`: Hourly EV charging occupancy (busy count) in certain stations.
 * `duration.csv`: Hourly EV charging duration in specific stations (Unit: hour).
 * `volume.csv`: Hourly EV charging volume in specific stations (Unit: kWh).
 * `e_price.csv`: Electricity price for specific stations (Unit: Yuan/kWh).
