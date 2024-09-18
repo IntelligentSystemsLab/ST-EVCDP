@@ -74,7 +74,7 @@ pip install -r requirements.txt
 
 We developed a physics-informed and attention-based approach for spatio-temporal EV charging demand prediction, named **PAG**. Expect that, some representative methods are included, e.g., LSTM, and GCN-LSTM, GAT-LSTM. You can train and test the proposed model through the following procedures:
 
-1. Choose your model in line 45 of `main.py` or use the default model (PAG-) by skipping this procedure.
+1. Choose your model in line 45 of `main.py` or use the default model (PAG) by skipping this procedure.
 2. Run `main.py` via Pycharm, etc. or change your ROOT_PATH and command:
 
 ```shell
