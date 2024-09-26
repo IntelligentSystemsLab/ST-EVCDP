@@ -4,6 +4,7 @@ This is a real-world dataset for spatio-temporal electric vehicle (EV) charging 
 
 >Qu, H., Kuang, H., Li, J., & You, L. (2023). A physics-informed and attention-based graph learning approach for regional electric vehicle charging demand prediction. IEEE Transactions on Intellgent Transportation Systems. [Paper in IEEE Explore](https://ieeexplore.ieee.org/document/10539613) [Paper in arXiv](https://arxiv.org/abs/2309.05259)
 
+>Kuang, H., Zhang, X., Qu, H., and You, L., and Zhu, R. and Li, J. (2024). Unravelling the effect of electricity price on electric vehicle charging behavior: A case study in Shenzhen, China. Sustainable Cities and Society. [DOI](https://doi.org/10.1016/j.scs.2024.105836)
 ```shell
 @ARTICLE{10539613,
   author={Qu, Haohao and Kuang, Haoxuan and Wang, Qiuxuan and Li, Jun and You, Linlin},
@@ -12,11 +13,21 @@ This is a real-world dataset for spatio-temporal electric vehicle (EV) charging 
   year={2024},
   pages={1-14},
   doi={10.1109/TITS.2024.3401850}}
+
+@article{kuang2024unravelling,
+  title={Unravelling the effect of electricity price on electric vehicle charging behavior: A case study in Shenzhen, China},
+  author={Kuang, Haoxuan and Zhang, Xinyu and Qu, Haohao and You, Linlin and Zhu, Rui and Li, Jun},
+  journal={Sustainable Cities and Society},
+  pages={105836},
+  year={2024},
+  publisher={Elsevier}
+}
 ```
 
 Author: Haohao Qu (haohao.qu@connect.polyu.hk)
 
 ## Updates
+* **Sep. 26, 2024: Our data analysis paper, which explores the relationship between price changes and demand, is now accessible at the [LINK](https://www.sciencedirect.com/science/article/pii/S2210670724006607?casa_token=iZXxEsQ6voEAAAAA:D5MgoyJf3LNAHF_VKKiwFBG51CeKOE86SY974d0Sj_RLy6_o0D093PecRoWPO_rA8h5Tc85y8A)**
 * July 11, 2024: Update 'duration.csv' in ST-EVCDP-v2.
 * July 8, 2024: We uploaded meteorological data collected from two weather stations for ST-EVCDP-v2, see link below.
 * **July 2, 2024: We are excited to announce the release of the early access version of ST-EVCDP-v2! You can download the data from [Google Drive Link](https://drive.google.com/drive/folders/1sqOUEpMh8VMiJhrT-MOn5OsB1-KirUVq?usp=drive_link).**
