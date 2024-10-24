@@ -1,12 +1,14 @@
 ## Spatio-temporal EVCDP (Shenzhen)
 
-This is a real-world dataset for spatio-temporal electric vehicle (EV) charging demand prediction. If it is helpful to your research, please cite our paper:
+This is a real-world dataset for spatio-temporal electric vehicle (EV) charging demand prediction. If it is helpful to your research, please cite our papers:
 
 >Qu, H., Kuang, H., Li, J., & You, L. (2023). A physics-informed and attention-based graph learning approach for regional electric vehicle charging demand prediction. IEEE Transactions on Intellgent Transportation Systems. [Paper in IEEE Explore](https://ieeexplore.ieee.org/document/10539613) [Paper in arXiv](https://arxiv.org/abs/2309.05259)
 
 >Kuang, H., Zhang, X., Qu, H., and You, L., and Zhu, R. and Li, J. (2024). Unravelling the effect of electricity price on electric vehicle charging behavior: A case study in Shenzhen, China. Sustainable Cities and Society. [DOI](https://doi.org/10.1016/j.scs.2024.105836)
+
+>Haohao Qu, Han Li, Linlin You, Rui Zhu, Jinyue Yan, Paolo Santi, Carlo Ratti, Chau Yuen. (2024) ChatEV: Predicting electric vehicle charging demand as natural language processing. Transportation Research Part D: Transport and Environment. [Paper in TRD](https://doi.org/10.1016/j.trd.2024.104470)
 ```shell
-@ARTICLE{10539613,
+@ARTICLE{qu2024a,
   author={Qu, Haohao and Kuang, Haoxuan and Wang, Qiuxuan and Li, Jun and You, Linlin},
   journal={IEEE Transactions on Intelligent Transportation Systems}, 
   title={A Physics-Informed and Attention-Based Graph Learning Approach for Regional Electric Vehicle Charging Demand Prediction}, 
@@ -22,11 +24,22 @@ This is a real-world dataset for spatio-temporal electric vehicle (EV) charging 
   year={2024},
   publisher={Elsevier}
 }
+
+@article{qu2024chatev,
+title = {ChatEV: Predicting electric vehicle charging demand as natural language processing},
+journal = {Transportation Research Part D: Transport and Environment},
+volume = {136},
+pages = {104470},
+year = {2024},
+issn = {1361-9209},
+author = {Haohao Qu and Han Li and Linlin You and Rui Zhu and Jinyue Yan and Paolo Santi and Carlo Ratti and Chau Yuen},
+}
 ```
 
 Author: Haohao Qu (haohao.qu@connect.polyu.hk)
 
 ## Updates
+* **Oct. 24, 2024: We have recently endeavored to forecast EV charging demand utilizing LLMs. The paper is now available at the [LINK](https://www.sciencedirect.com/science/article/abs/pii/S1361920924004279?CMX_ID=&SIS_ID=&dgcid=STMJ_219742_AUTH_SERV_PA&utm_acid=285873158&utm_campaign=STMJ_219742_AUTH_SERV_PA&utm_in=DM517501&utm_medium=email&utm_source=AC), with the code set to be released soon.**
 * **Sep. 26, 2024: Our data analysis paper, which explores the relationship between price changes and demand, is now accessible at the [LINK](https://www.sciencedirect.com/science/article/pii/S2210670724006607?casa_token=iZXxEsQ6voEAAAAA:D5MgoyJf3LNAHF_VKKiwFBG51CeKOE86SY974d0Sj_RLy6_o0D093PecRoWPO_rA8h5Tc85y8A)**
 * July 11, 2024: Update 'duration.csv' in ST-EVCDP-v2.
 * July 8, 2024: We uploaded meteorological data collected from two weather stations for ST-EVCDP-v2, see link below.
