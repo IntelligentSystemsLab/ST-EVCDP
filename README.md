@@ -39,6 +39,7 @@ author = {Haohao Qu and Han Li and Linlin You and Rui Zhu and Jinyue Yan and Pao
 Author: Haohao Qu (haohao.qu@connect.polyu.hk)
 
 ## Updates
+* Nov. 23, 2024: Update 'occupancy.csv', 'duration.csv', 'volume.csv', 'e_price.csv', and 's_price.csv' in ST-EVCDP-v2.
 * **Oct. 24, 2024: We have recently endeavored to forecast EV charging demand utilizing LLMs. The paper is now available at the [LINK](https://www.sciencedirect.com/science/article/abs/pii/S1361920924004279?CMX_ID=&SIS_ID=&dgcid=STMJ_219742_AUTH_SERV_PA&utm_acid=285873158&utm_campaign=STMJ_219742_AUTH_SERV_PA&utm_in=DM517501&utm_medium=email&utm_source=AC), with the code set to be released soon.**
 * **Sep. 26, 2024: Our data analysis paper, which explores the relationship between price changes and demand, is now accessible at the [LINK](https://www.sciencedirect.com/science/article/pii/S2210670724006607?casa_token=iZXxEsQ6voEAAAAA:D5MgoyJf3LNAHF_VKKiwFBG51CeKOE86SY974d0Sj_RLy6_o0D093PecRoWPO_rA8h5Tc85y8A)**
 * July 11, 2024: Update 'duration.csv' in ST-EVCDP-v2.
