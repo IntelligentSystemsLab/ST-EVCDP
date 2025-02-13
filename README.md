@@ -6,7 +6,8 @@ This is a real-world dataset for spatio-temporal electric vehicle (EV) charging 
 
 >Kuang, H., Zhang, X., Qu, H., and You, L., and Zhu, R. and Li, J. (2024). Unravelling the effect of electricity price on electric vehicle charging behavior: A case study in Shenzhen, China. Sustainable Cities and Society. [DOI](https://doi.org/10.1016/j.scs.2024.105836)
 
->Haohao Qu, Han Li, Linlin You, Rui Zhu, Jinyue Yan, Paolo Santi, Carlo Ratti, Chau Yuen. (2024) ChatEV: Predicting electric vehicle charging demand as natural language processing. Transportation Research Part D: Transport and Environment. [Paper in TRD](https://doi.org/10.1016/j.trd.2024.104470)
+>Haohao Qu, Han Li, Linlin You, Rui Zhu, Jinyue Yan, Paolo Santi, Carlo Ratti, Chau Yuen. (2024) ChatEV: Predicting electric vehicle charging demand as natural language processing. Transportation Research Part D: Transport and Environment. [Paper in TRD](https://doi.org/10.1016/j.trd.2024.104470) [Code in Github](https://github.com/Quhaoh233/ChatEV)
+
 ```shell
 @ARTICLE{qu2024a,
   author={Qu, Haohao and Kuang, Haoxuan and Wang, Qiuxuan and Li, Jun and You, Linlin},
@@ -39,6 +40,7 @@ author = {Haohao Qu and Han Li and Linlin You and Rui Zhu and Jinyue Yan and Pao
 Author: Haohao Qu (haohao.qu@connect.polyu.hk)
 
 ## Updates
+* **Feb. 13, 2025: An updated ST-EVCDP-v2 is released at [UrbanEV](https://github.com/IntelligentSystemsLab/UrbanEV), which includes many detailed and processed charging data with a long time span of six months.**
 * Nov. 23, 2024: Update 'occupancy.csv', 'duration.csv', 'volume.csv', 'e_price.csv', and 's_price.csv' in ST-EVCDP-v2.
 * **Oct. 24, 2024: We have recently endeavored to forecast EV charging demand utilizing LLMs. The paper is now available at the [LINK](https://www.sciencedirect.com/science/article/abs/pii/S1361920924004279?CMX_ID=&SIS_ID=&dgcid=STMJ_219742_AUTH_SERV_PA&utm_acid=285873158&utm_campaign=STMJ_219742_AUTH_SERV_PA&utm_in=DM517501&utm_medium=email&utm_source=AC), with the code set to be released soon.**
 * **Sep. 26, 2024: Our data analysis paper, which explores the relationship between price changes and demand, is now accessible at the [LINK](https://www.sciencedirect.com/science/article/pii/S2210670724006607?casa_token=iZXxEsQ6voEAAAAA:D5MgoyJf3LNAHF_VKKiwFBG51CeKOE86SY974d0Sj_RLy6_o0D093PecRoWPO_rA8h5Tc85y8A)**
