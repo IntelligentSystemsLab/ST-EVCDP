@@ -45,7 +45,7 @@ Expanding on the foundation of ST-EVCDP, we have gathered an extensive dataset c
 * `time.csv`: The timestamps of studied period.
 * `Shenzhen.qgz`: The QGIS map file of Shenzhen city.
 
-### ST-EVCDP-v2
+### UrbanEV/ST-EVCDP-v2
 * `inf.csv`: Important information of the charging stations, including coordinates and charging capacities.
 * `occupancy.csv`: Hourly EV charging occupancy (busy count) in certain stations.
 * `duration.csv`: Hourly EV charging duration in specific stations (Unit: hour).
