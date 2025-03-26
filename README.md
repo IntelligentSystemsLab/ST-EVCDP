@@ -1,49 +1,13 @@
 ## Spatio-temporal EVCDP (Shenzhen)
-
-This is a real-world dataset for spatio-temporal electric vehicle (EV) charging demand prediction. If it is helpful to your research, please cite our papers:
-
->Qu, H., Kuang, H., Li, J., & You, L. (2023). A physics-informed and attention-based graph learning approach for regional electric vehicle charging demand prediction. IEEE Transactions on Intellgent Transportation Systems. [Paper in IEEE Explore](https://ieeexplore.ieee.org/document/10539613) [Paper in arXiv](https://arxiv.org/abs/2309.05259)
-
->Kuang, H., Zhang, X., Qu, H., and You, L., and Zhu, R. and Li, J. (2024). Unravelling the effect of electricity price on electric vehicle charging behavior: A case study in Shenzhen, China. Sustainable Cities and Society. [DOI](https://doi.org/10.1016/j.scs.2024.105836)
-
->Haohao Qu, Han Li, Linlin You, Rui Zhu, Jinyue Yan, Paolo Santi, Carlo Ratti, Chau Yuen. (2024) ChatEV: Predicting electric vehicle charging demand as natural language processing. Transportation Research Part D: Transport and Environment. [Paper in TRD](https://doi.org/10.1016/j.trd.2024.104470) [Code in Github](https://github.com/Quhaoh233/ChatEV)
-
-```shell
-@ARTICLE{qu2024a,
-  author={Qu, Haohao and Kuang, Haoxuan and Wang, Qiuxuan and Li, Jun and You, Linlin},
-  journal={IEEE Transactions on Intelligent Transportation Systems}, 
-  title={A Physics-Informed and Attention-Based Graph Learning Approach for Regional Electric Vehicle Charging Demand Prediction}, 
-  year={2024},
-  pages={1-14},
-  doi={10.1109/TITS.2024.3401850}}
-
-@article{kuang2024unravelling,
-  title={Unravelling the effect of electricity price on electric vehicle charging behavior: A case study in Shenzhen, China},
-  author={Kuang, Haoxuan and Zhang, Xinyu and Qu, Haohao and You, Linlin and Zhu, Rui and Li, Jun},
-  journal={Sustainable Cities and Society},
-  pages={105836},
-  year={2024},
-  publisher={Elsevier}
-}
-
-@article{qu2024chatev,
-title = {ChatEV: Predicting electric vehicle charging demand as natural language processing},
-journal = {Transportation Research Part D: Transport and Environment},
-volume = {136},
-pages = {104470},
-year = {2024},
-issn = {1361-9209},
-author = {Haohao Qu and Han Li and Linlin You and Rui Zhu and Jinyue Yan and Paolo Santi and Carlo Ratti and Chau Yuen},
-}
-```
-
-Author: Haohao Qu (haohao.qu@connect.polyu.hk)
+This project is dedicated to offering high-quality, real-world, open datasets for researching spatio-temporal electric vehicle (EV) charging demand in urban areas. We have publicly released two well-structured datasets:
+1. ST-EVCDP (available in this repository): This dataset includes information on 18,061 public charging piles, covering a period of 30 days with data recorded at a minimum interval of 5 minutes.
+2. UrbanEV (accessible at [GitHub - IntelligentSystemsLab/UrbanEV](https://github.com/IntelligentSystemsLab/UrbanEV)): This dataset comprises data from 24,798 public charging piles over six months, with data intervals of both 5 minutes and 1 hour.
 
 ## Updates
 * **Feb. 13, 2025: An updated ST-EVCDP-v2 is released at [UrbanEV](https://github.com/IntelligentSystemsLab/UrbanEV), which includes many detailed and processed charging data with a long time span of six months.**
 * Nov. 23, 2024: Update 'occupancy.csv', 'duration.csv', 'volume.csv', 'e_price.csv', and 's_price.csv' in ST-EVCDP-v2.
-* **Oct. 24, 2024: We have recently endeavored to forecast EV charging demand utilizing LLMs. The paper is now available at the [LINK](https://www.sciencedirect.com/science/article/abs/pii/S1361920924004279?CMX_ID=&SIS_ID=&dgcid=STMJ_219742_AUTH_SERV_PA&utm_acid=285873158&utm_campaign=STMJ_219742_AUTH_SERV_PA&utm_in=DM517501&utm_medium=email&utm_source=AC), with the code set to be released soon.**
-* **Sep. 26, 2024: Our data analysis paper, which explores the relationship between price changes and demand, is now accessible at the [LINK](https://www.sciencedirect.com/science/article/pii/S2210670724006607?casa_token=iZXxEsQ6voEAAAAA:D5MgoyJf3LNAHF_VKKiwFBG51CeKOE86SY974d0Sj_RLy6_o0D093PecRoWPO_rA8h5Tc85y8A)**
+* **Oct. 24, 2024: We have recently endeavored to forecast EV charging demand utilizing LLMs, i.e., ChatEV. The paper is now available at [TRD](https://www.sciencedirect.com/science/article/abs/pii/S1361920924004279?CMX_ID=&SIS_ID=&dgcid=STMJ_219742_AUTH_SERV_PA&utm_acid=285873158&utm_campaign=STMJ_219742_AUTH_SERV_PA&utm_in=DM517501&utm_medium=email&utm_source=AC), with the code at [Github-ChatEV](https://github.com/Quhaoh233/ChatEV).**
+* **Sep. 26, 2024: Our data analysis paper, which explores the relationship between price changes and demand, is now accessible at [Sustainable Cities and Society](https://www.sciencedirect.com/science/article/pii/S2210670724006607?casa_token=iZXxEsQ6voEAAAAA:D5MgoyJf3LNAHF_VKKiwFBG51CeKOE86SY974d0Sj_RLy6_o0D093PecRoWPO_rA8h5Tc85y8A).**
 * July 11, 2024: Update 'duration.csv' in ST-EVCDP-v2.
 * July 8, 2024: We uploaded meteorological data collected from two weather stations for ST-EVCDP-v2, see link below.
 * **July 2, 2024: We are excited to announce the release of the early access version of ST-EVCDP-v2! You can download the data from [Google Drive Link](https://drive.google.com/drive/folders/1sqOUEpMh8VMiJhrT-MOn5OsB1-KirUVq?usp=drive_link).**
@@ -64,12 +28,10 @@ Besides, the pricing schemes for the studied charging piles are also collected. 
 
 ![avatar](figs/statistics.png)
 
-### ST-EVCDP-v2 (i.e., UrbanEV)
-Expanding on the foundation of ST-EVCDP, we have gathered an extensive dataset called ST-EVCDP-v2, specifically tailored for EV-related research. This dataset covers a timeframe of **one year**, spanning from September 2022 to September 2023, which includes comprehensive information such as coordinates, charging occupancy, duration, volume, and price for a total of 1,682 public charging stations with 24,798 public charging piles. Notably, it provides detailed information on charging stations, with a granularity that allows analysis at the charging station level. And its temporal interval is one hour. You can download the early-access version of data from [Google Drive Link](https://drive.google.com/drive/folders/1sqOUEpMh8VMiJhrT-MOn5OsB1-KirUVq?usp=drive_link).
+### UrbanEV (i.e., ST-EVCDP-v2)
+Expanding on the foundation of ST-EVCDP, we have gathered an extensive dataset called UrbanEV, specifically tailored for EV-related research. This dataset covers a timeframe of **six month**, spanning from September 2022 to Feburary 2023, which includes comprehensive information such as coordinates, charging occupancy, duration, volume, and price for a total of 1,682 public charging stations with 24,798 public charging piles. Notably, it provides detailed information on charging stations, with a granularity that allows analysis at the charging station level. And its temporal interval is one hour. The dataset is available at the github repo: [UrbanEV](https://github.com/IntelligentSystemsLab/UrbanEV) and the Dryad repo: [Dryad-UrbanEV](https://datadryad.org/dataset/doi:10.5061/dryad.np5hqc04z).
 
-The updated version of ST-EVCDP-v2 (also called UrbanEV) is available at the new github repo: [UrbanEV](https://github.com/IntelligentSystemsLab/UrbanEV)
-
-![avatar](figs/map_v2.png) Figure 2. Spatial distribution of the 24,798 public EV charging piles in ST-EVCDP-v2.
+![avatar](figs/urbanev.png) Figure 2. Spatial distribution of the 24,798 public EV charging piles in UrbanEV.
 
 ## Files
 ### ST-EVCDP
@@ -114,4 +76,42 @@ cd [path] && python main.py
 * If you want to run your own models on the datasets we offer, you should go to `models.py` and replace the model in `main.py`.
 
 
-More updates will be posed in the near future! Thank you for your interest.
+## Citations:
+ If this project is helpful to your research, please cite our papers:
+
+>Qu, H., Kuang, H., Li, J., & You, L. (2023). A physics-informed and attention-based graph learning approach for regional electric vehicle charging demand prediction. IEEE Transactions on Intellgent Transportation Systems. [Paper in IEEE Explore](https://ieeexplore.ieee.org/document/10539613) [Paper in arXiv](https://arxiv.org/abs/2309.05259)
+
+>Kuang, H., Zhang, X., Qu, H., and You, L., and Zhu, R. and Li, J. (2024). Unravelling the effect of electricity price on electric vehicle charging behavior: A case study in Shenzhen, China. Sustainable Cities and Society. [DOI](https://doi.org/10.1016/j.scs.2024.105836)
+
+>Haohao Qu, Han Li, Linlin You, Rui Zhu, Jinyue Yan, Paolo Santi, Carlo Ratti, Chau Yuen. (2024) ChatEV: Predicting electric vehicle charging demand as natural language processing. Transportation Research Part D: Transport and Environment. [Paper in TRD](https://doi.org/10.1016/j.trd.2024.104470) [Code in Github](https://github.com/Quhaoh233/ChatEV)
+
+```shell
+@ARTICLE{qu2024a,
+  author={Qu, Haohao and Kuang, Haoxuan and Wang, Qiuxuan and Li, Jun and You, Linlin},
+  journal={IEEE Transactions on Intelligent Transportation Systems}, 
+  title={A Physics-Informed and Attention-Based Graph Learning Approach for Regional Electric Vehicle Charging Demand Prediction}, 
+  year={2024},
+  pages={1-14},
+  doi={10.1109/TITS.2024.3401850}}
+
+@article{kuang2024unravelling,
+  title={Unravelling the effect of electricity price on electric vehicle charging behavior: A case study in Shenzhen, China},
+  author={Kuang, Haoxuan and Zhang, Xinyu and Qu, Haohao and You, Linlin and Zhu, Rui and Li, Jun},
+  journal={Sustainable Cities and Society},
+  pages={105836},
+  year={2024},
+  publisher={Elsevier}
+}
+
+@article{qu2024chatev,
+title = {ChatEV: Predicting electric vehicle charging demand as natural language processing},
+journal = {Transportation Research Part D: Transport and Environment},
+volume = {136},
+pages = {104470},
+year = {2024},
+issn = {1361-9209},
+author = {Haohao Qu and Han Li and Linlin You and Rui Zhu and Jinyue Yan and Paolo Santi and Carlo Ratti and Chau Yuen},
+}
+```
+
+Author: Haohao Qu (haohao.qu@connect.polyu.hk)
