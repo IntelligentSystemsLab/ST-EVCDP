@@ -85,8 +85,10 @@ cd [path] && python main.py
 
 >Haohao Qu, Han Li, Linlin You, Rui Zhu, Jinyue Yan, Paolo Santi, Carlo Ratti, Chau Yuen. (2024) ChatEV: Predicting electric vehicle charging demand as natural language processing. Transportation Research Part D: Transport and Environment. [Paper in TRD](https://doi.org/10.1016/j.trd.2024.104470) [Code in Github](https://github.com/Quhaoh233/ChatEV)
 
+>Li, H., Qu, H., Tan, X. et al. (2025) UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction. Scientific Data. [Paper in Spring Nature](https://doi.org/10.1038/s41597-025-04874-4)
+
 ```shell
-@ARTICLE{qu2024a,
+@Article{qu2024a,
   author={Qu, Haohao and Kuang, Haoxuan and Wang, Qiuxuan and Li, Jun and You, Linlin},
   journal={IEEE Transactions on Intelligent Transportation Systems}, 
   title={A Physics-Informed and Attention-Based Graph Learning Approach for Regional Electric Vehicle Charging Demand Prediction}, 
@@ -104,13 +106,23 @@ cd [path] && python main.py
 }
 
 @article{qu2024chatev,
-title = {ChatEV: Predicting electric vehicle charging demand as natural language processing},
-journal = {Transportation Research Part D: Transport and Environment},
-volume = {136},
-pages = {104470},
-year = {2024},
-issn = {1361-9209},
-author = {Haohao Qu and Han Li and Linlin You and Rui Zhu and Jinyue Yan and Paolo Santi and Carlo Ratti and Chau Yuen},
+ title = {ChatEV: Predicting electric vehicle charging demand as natural language processing},
+ journal = {Transportation Research Part D: Transport and Environment},
+ volume = {136},
+ pages = {104470},
+ year = {2024},
+ issn = {1361-9209},
+ author = {Haohao Qu and Han Li and Linlin You and Rui Zhu and Jinyue Yan and Paolo Santi and Carlo Ratti and Chau Yuen},
+}
+
+@article{li2025urbanev,
+ title = {UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction},
+ journal = {Scientific Data},
+ volume = {12},
+ pages = {523},
+ year = {2025},
+ issn = {2052-4463},
+ author = {Li, Han and Qu, Haohao and Tan, Xiaojun and You, Linlin and Zhu, Rui and Fan, Wenqi},
 }
 ```
 
