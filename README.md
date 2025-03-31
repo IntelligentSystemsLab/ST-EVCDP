@@ -4,6 +4,7 @@ This project is dedicated to offering high-quality, real-world, open datasets fo
 2. UrbanEV (accessible at [GitHub - IntelligentSystemsLab/UrbanEV](https://github.com/IntelligentSystemsLab/UrbanEV)): This dataset comprises data from 24,798 public charging piles over six months, with data intervals of both 5 minutes and 1 hour.
 
 ## Updates
+* March 28, 2025: Our dataset paper, *UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction*, has been published online at [Scientific Data](https://www.nature.com/articles/s41597-025-04874-4)!
 * **Feb. 13, 2025: An updated ST-EVCDP-v2 is released at [UrbanEV](https://github.com/IntelligentSystemsLab/UrbanEV), which includes many detailed and processed charging data with a long time span of six months.**
 * Nov. 23, 2024: Update 'occupancy.csv', 'duration.csv', 'volume.csv', 'e_price.csv', and 's_price.csv' in ST-EVCDP-v2.
 * **Oct. 24, 2024: We have recently endeavored to forecast EV charging demand utilizing LLMs, i.e., ChatEV. The paper is now available at [TRD](https://www.sciencedirect.com/science/article/abs/pii/S1361920924004279?CMX_ID=&SIS_ID=&dgcid=STMJ_219742_AUTH_SERV_PA&utm_acid=285873158&utm_campaign=STMJ_219742_AUTH_SERV_PA&utm_in=DM517501&utm_medium=email&utm_source=AC), with the code at [Github-ChatEV](https://github.com/Quhaoh233/ChatEV).**
