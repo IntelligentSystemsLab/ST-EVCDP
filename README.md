@@ -1,7 +1,7 @@
-## Spatio-temporal EVCDP (Shenzhen)
+## Spatio-temporal EVCDP (Shenzhen) Datasets
 This project is dedicated to offering high-quality, real-world, open datasets for researching spatio-temporal electric vehicle (EV) charging demand in urban areas. We have publicly released two well-structured datasets:
-1. ST-EVCDP (available in this repository): This dataset includes information on 18,061 public charging piles, covering a period of 30 days with data recorded at a minimum interval of 5 minutes.
-2. UrbanEV (accessible at [GitHub - IntelligentSystemsLab/UrbanEV](https://github.com/IntelligentSystemsLab/UrbanEV)): This dataset comprises data from 24,798 public charging piles over six months, with data intervals of both 5 minutes and 1 hour.
+1. **ST-EVCDP** (available in this repository): This dataset includes information on 18,061 public charging piles, covering a period of 30 days with data recorded at a minimum interval of 5 minutes.
+2. **UrbanEV** (accessible at [GitHub - IntelligentSystemsLab/UrbanEV](https://github.com/IntelligentSystemsLab/UrbanEV)): This dataset comprises data from 24,798 public charging piles over six months, with data intervals of both 5 minutes and 1 hour.
 
 ## Updates
 * March 28, 2025: Our dataset paper, *UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction*, has been published online at [Scientific Data](https://www.nature.com/articles/s41597-025-04874-4)!
@@ -75,7 +75,7 @@ cd [path] && python main.py
 
 ## Extend:
 * If you want to run your own models on the datasets we offer, you should go to `models.py` and replace the model in `main.py`.
-
+* We have also released a simple repository for a **Large Language Model**-based electric vehicle charging demand predictor, available at [ChatEV](https://github.com/Quhaoh233/ChatEV).
 
 ## Citations:
  If this project is helpful to your research, please cite our papers:
