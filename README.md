@@ -40,11 +40,11 @@ Expanding on the foundation of ST-EVCDP, we have gathered an extensive dataset c
 * `distance.csv`: Distances between nodes.
 * `information.csv`: Several basis information about the data, including pile capacity, longitude, latitude, whether or not located in the central business district (1:yes, 0:no), and whether or not on a time-based pricing scheme (1:yes, 0:no).
 * `occupancy.csv`: The real-time EV charging occupancy in studied areas.
-* `duration.csv`: The real-time EV charging duration in studied areas, i.e., the sum of charging time for all charging piles, unit in hour.
+* `duration.csv`: The real-time EV charging duration in studied areas, i.e., the sum of charging time for all charging piles, unit in hour. 
 * `volume.csv`: The real-time EV charging volume in studied areas, i.e., the total power consumption of all charging piles, unit in kWh.
 * `price.csv`: The real-time EV charging pricing in studied areas.
 * `time.csv`: The timestamps of studied period.
-* `Shenzhen.qgz`: The QGIS map file of Shenzhen city.
+* `Shenzhen.qgz`: The QGIS map file of Shenzhen city. 
 
 ### UrbanEV/ST-EVCDP-v2
 * `inf.csv`: Important information of the charging stations, including coordinates and charging capacities.
@@ -56,6 +56,8 @@ Expanding on the foundation of ST-EVCDP, we have gathered an extensive dataset c
 * `weather_airport.csv`: Weather data collected from the meteorological station at Bao'an Airport (Shenzhen).
 * `weather_central.csv`: Weather data collected from Futian Meteorological Station located in the city centre area of Shenzhen.
 * `weather_header.csv`: Descriptions of the table headers presented in `weather_airport.csv` and `weather_central.csv`.
+
+Notes: Our occupancy data is gathered from an availability perspective, while the duration and volume data is collected from a utilization standpoint. Specifically, the occupancy data records all unavailable or busy charging piles, including those in use, broken, and under maintenance, etc. In contrast, the duration and volume data only account for the piles actively providing electricity, which may experience some missing data due to sensor errors. You can select the data according to your research purpose.
 
 ## Enviroment Requirement
 ```shell
