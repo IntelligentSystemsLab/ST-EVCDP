@@ -57,7 +57,7 @@ Expanding on the foundation of ST-EVCDP, we have gathered an extensive dataset c
 * `weather_central.csv`: Weather data collected from Futian Meteorological Station located in the city centre area of Shenzhen.
 * `weather_header.csv`: Descriptions of the table headers presented in `weather_airport.csv` and `weather_central.csv`.
 
-Notes: Our occupancy data is gathered from an availability perspective, while the duration and volume data is collected from a utilization standpoint. Specifically, the occupancy data records all unavailable or busy charging piles, including those in use, broken, and under maintenance, etc. In contrast, the duration and volume data only account for the piles actively providing electricity, which may experience some missing data due to sensor errors. You can select the data according to your research purpose.
+Notes: Our occupancy data is gathered from an availability perspective, while the duration and volume data is collected from a utilization standpoint. Specifically, the occupancy data records all unavailable or busy charging piles. In contrast, the duration and volume data only account for the piles actively providing electricity. You can select the data according to your research purpose.
 
 ## Enviroment Requirement
 ```shell
