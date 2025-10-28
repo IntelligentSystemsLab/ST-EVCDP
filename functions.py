@@ -73,12 +73,13 @@ def metrics(test_pre, test_real):
     RMSE = np.sqrt(MSE)
     R2 = r2_score(test_real, test_pre)
     RAE = np.sum(abs(test_pre - test_real)) / np.sum(abs(np.mean(test_real) - test_real))
-    print('MAPE: {}'.format(MAPE))
-    print('MAE:{}'.format(MAE))
-    print('MSE:{}'.format(MSE))
-    print('RMSE:{}'.format(RMSE))
-    print('R2:{}'.format(R2))
-    print(('RAE:{}'.format(RAE)))
+    operator = 100
+    print('MAPE: {}%'.format(MAPE*operator))
+    print('MAE:{}*10^-2'.format(MAE*operator))
+    print('MSE:{}*10^-2'.format(MSE*operator))
+    print('RMSE:{}*10^-2'.format(RMSE*operator))
+    print('R2:{}%'.format(R2*operator))
+    print(('RAE:{}%'.format(RAE*operator)))
     output_list = [MSE, RMSE, MAPE, RAE, MAE, R2]
     return output_list
 
